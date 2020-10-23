@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A cool thing made with Glitch">
+
+    <title>Welcome to Glitch!</title>
+
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!--<script src="https://tonejs.github.io/build/Tone.js"></script>-->
+
+    <!-- import libraries -->
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/main.js" type="module"></script>
+    
+    <script>
+      function copyId () {
+        const currentId = document.getElementById('self-id').textContent
+        const tempInput = document.createElement('input')
+        tempInput.value = currentId
+        document.body.appendChild(tempInput)
+        tempInput.select()
+        document.execCommand('copy')
+        tempInput.remove()
+      }
+    </script>
+  </head>
+  <body>
+    <label for="in-devices">MIDI Input Device:</label>
+    <select id="in-devices"></select>
+    <label for="out-devices">MIDI Output Device:</label>
+    <select id="out-devices"></select>
+    <input type="text" id="connect-to-peer" />
+    <button onclick="connectToPeer()">
+      Connect
+    </button>
+    
+    <span class="id">
+    <code id="self-id"></code>
+    <button class="bn" id="copy" onclick="copyId()">
+      <img src="/assets/copy.svg" style="vertical-align:text-bottom; width: 1rem;" alt="Copy ID">
+    </button>
+    </span>
+    <div class="messages"></div>
+
+    <footer>Made with <a href="https://glitch.com">Glitch</a></footer>
+  </body>
+</html>
